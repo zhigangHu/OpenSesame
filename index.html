@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Open-Sesame-HomePage</title>
+<meta name="keywords" content="slate, theme, darkcyan, teal color, free templates, web design, CSS, HTML" />
+<meta name="description" content="Slate Theme is using darkcyan or teal color free template by templatemo.com" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+
+<script language="javascript" type="text/javascript">
+function clearText(field){
+
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+
+}
+</script>
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script>
+
+</head>
+
+<body>
+
+<div id="templatemo_wrapper">
+	<div id="templatemo_header">
+    	                     <h1 align="center">Data Visualization Final Project</h1>
+                             <h2>Team Name:Open Sesame</h2>
+        <p><h3>Team Member:Zhigang Hu</h3><h3> A-Number:A02267351</h3></p><p><h3> Jia Lu </h3></p><div class="cleaner"></div>
+    </div> <!-- end of header -->
+    <div id="templatemo_menu" class="ddsmoothmenu">
+        <ul>
+            <li><a href="index.html" class="selected">Home</a></li>
+            <li><a href="dataset.html">Dataset</a>
+<!--                <ul>-->
+<!--                    <li><a href="">Sub menu 1</a></li>-->
+<!--                    <li><a href="">Sub menu 2</a></li>-->
+<!--                    <li><a href="">Sub menu 3</a></li>-->
+<!--              	</ul>-->
+            </li>
+            <li><a href="">stock cluster</a>
+<!--                <ul>-->
+<!--                    <li><a href="">Sub menu 1</a></li>-->
+<!--                    <li><a href="">Sub menu 2</a></li>-->
+<!--                    <li><a href="">Sub menu 3</a></li>-->
+<!--                    <li><a href=”">Sub menu 4</a></li>-->
+<!--                    <li><a href="">Sub menu 5</a></li>-->
+<!--              	</ul>-->
+            </li>
+            <li><a href="">Static Chart</a></li>
+            <li><a href="">Interactive_Chart</a></li>
+        </ul>
+<!--        <div id="search_box">-->
+<!--            <form action="#" method="get">-->
+<!--                <input type="text" value="Search" name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />-->
+<!--                <input type="submit" name="Search" value="" id="searchbutton" title="Search" />-->
+<!--            </form>-->
+<!--        </div>-->
+        <br style="clear: left" />
+    </div> <!-- end of templatemo_menu -->
+    <div id="templatemo_slider">
+   
+        <div id="slider" class="nivoSlider">
+            <img src="images/slider/01.jpg" alt="Slider 01" title="Nam porttitor, felis ac posuere sagittis, diam nisl convallis." />
+            <a href="#"><img src="images/slider/02.jpg" alt="Slider 02" title="Fusce sagittis, arcu a condimentum gravida." /></a>
+            <img src="images/slider/03.jpg" alt="Slider 03" title="Donec purus eros, dictum nec accumsan quis, auctor non eros."/>
+            <img src="images/slider/04.jpg" alt="Slider 04" title="Donec dignissim imperdiet orci sit amet posuere." />
+        </div>
+
+        <script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+        <script type="text/javascript">
+        $(window).load(function() {
+			$('#slider').nivoSlider({
+				effect:'random', // Specify sets like: 'fold,fade,sliceDown'
+				slices:15, // For slice animations
+				boxCols: 8, // For box animations
+				boxRows: 4, // For box animations
+				animSpeed:500, // Slide transition speed
+				pauseTime:3000, // How long each slide will show
+				startSlide:0, // Set starting Slide (0 index)
+				directionNav:true, // Next and Prev navigation
+				directionNavHide:false, // Only show on hover
+				controlNav:false, // 1,2,3... navigation
+				controlNavThumbs:false, // Use thumbnails for Control Nav
+				controlNavThumbsFromRel:false, // Use image rel for thumbs
+				controlNavThumbsSearch: '.jpg', // Replace this with...
+				controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+				keyboardNav:true, // Use left and right arrows
+				pauseOnHover:true, // Stop animation while hovering
+				manualAdvance:false, // Force manual transitions
+				captionOpacity:0.8, // Universal caption opacity
+				prevText: 'Prev', // Prev directionNav text
+				nextText: 'Next', // Next directionNav text
+				beforeChange: function(){}, // Triggers before a slide transition
+				afterChange: function(){}, // Triggers after a slide transition
+				slideshowEnd: function(){}, // Triggers after all slides have been shown
+				lastSlide: function(){}, // Triggers when last slide is shown
+				afterLoad: function(){} // Triggers when slider has loaded
+			});
+		});
+        </script>   
+    </div>
+    
+    <div id="templatemo_main">
+    	<div class="col one_third">
+        	<h2>Overview and Motivation</h2>
+            <p>The data is not always the boring number. Sometimes you can earn the money by mining them. So we called this “Data value Digging”.
+                Many people are very interesting in investing stock market, for example Dow 29, Nasdaq, S&P 500. But most of the investors have no idea what kind of stock I should buy, what time is the best time to sell. If they don’t make clear of these questions they will lost money instead earning money.</p>
+
+            <a href="#" class="more">More</a>
+        </div>
+        <div class="col one_third">
+        	<h2>Project Objectives</h2>
+            <p>In this project we plan to build a data visualization web site. By visualizing the stock market data to help people who want to invest in stock market to make decision, what kind of stock they should buy, what time is the best time to buy and what time is the best time to sell, what the invest risk, what is the invest profit
+            </p>
+
+            <a href="#" class="more">More</a>	
+        </div>
+        <div class="col one_third last_box">
+        	<h2>Related Work:</h2>
+
+            <p>
+                <ul>
+                <li><a href="http://finance.yahoo.com/">Yahoo Finance</a></li>
+                <li><a href="https://visme.co/blog/business-intelligence-visualization/">Visual Learning Center</a></li>
+                <li><a href="https://pdfs.semanticscholar.org/157a/1cb155ea34d33eacce0c870e8d6fd60a6c13.pdf">Visualization of Stock Market Charts</a> </li>
+              </ul>
+            </p>
+            <a href="#" class="more">More</a>	
+        </div>
+        
+
+
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div></body>
+</html>
