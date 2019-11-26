@@ -72,6 +72,7 @@
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     d3.csv("data/BABA.csv", function(error, data) {
+        console.log(data);
         var accessor = candlestick.accessor();
 
         data = data.slice(0,365).map(function(d) {
