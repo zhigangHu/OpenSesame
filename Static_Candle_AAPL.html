@@ -112,7 +112,7 @@ console.log(data);
         // Data to display initially
         draw(data);
         // Only want this button to be active if the data has loaded
-        d3.select("button").on("click", function() { draw(data); }).style("display", "inline");
+        d3.select("button").on("click", function() { draw(data.slice(0,200)); }).style("display", "inline");
     });
 
     function draw(data) {
