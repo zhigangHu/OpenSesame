@@ -40,7 +40,7 @@
 <body>
 <button>Update</button>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="http://techanjs.org/techan.min.js"></script>
+<script src="js/techan.min.js"></script>
 <script>
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -71,11 +71,11 @@
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.csv("data/BABA.csv", function(error, data) {
+    d3.csv("data/AAPL.csv", function(error, data) {
         console.log(data);
         var accessor = candlestick.accessor();
 
-        data = data.slice(0,365).map(function(d) {
+        data = data.map(function(d) {
             return {
                 date: parseDate(d.Date),
                 open: +d.Open,
@@ -85,7 +85,7 @@
                 volume: +d.Volume
             };
         }).sort(function(a, b) { return d3.ascending(accessor.d(a), accessor.d(b)); });
-
+console.log(data);
         svg.append("g")
             .attr("class", "candlestick");
 
@@ -96,7 +96,7 @@
         svg.append('text')
             .attr('x',width/2)
             .attr('y',100)
-            .text('CandleChart_Alibaba')
+            .text('CandleStick_AAPL')
             .attr('class','.chart text')
             .style('font-size','50');
 
@@ -110,7 +110,7 @@
             .text("Price ($)");
 
         // Data to display initially
-        draw(data.slice(0, data.length-20));
+        draw(data);
         // Only want this button to be active if the data has loaded
         d3.select("button").on("click", function() { draw(data); }).style("display", "inline");
     });
