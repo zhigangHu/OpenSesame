@@ -17,53 +17,39 @@
         display: none;
     }
 
-    path.candle {
+    path.line {
+        fill: none;
         stroke: #000000;
-    }
-
-    path.candle.body {
-        stroke-width: 0;
-    }
-
-    path.candle.up {
-        fill: #00AA00;
-        stroke: #00AA00;
-    }
-
-    path.candle.down {
-        fill: #FF0000;
-        stroke: #FF0000;
+        stroke-width: 1;
     }
 
 </style>
-<link rel="stylesheet" type="text/css" href="css/stock_style.css" />
 <body>
 <button>Update</button>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="js/techan.min.js"></script>
 <script>
 
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width =1280-margin.left - margin.right
-        height = 960 - margin.top - margin.bottom;
+    var margin = {top: 80, right: 20, bottom: 30, left: 50},
+        width = 1280 - margin.left - margin.right,
+        height = 900 - margin.top - margin.bottom;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
 
     var x = techan.scale.financetime()
-        .range([0, width]);
+        .range([0, width])
+        .outerPadding(0);
 
     var y = d3.scaleLinear()
         .range([height, 0]);
 
-    var candlestick = techan.plot.candlestick()
+    var close = techan.plot.close()
         .xScale(x)
         .yScale(y);
 
-    var xAxis = d3.axisBottom()
-        .scale(x);
+    var xAxis = d3.axisBottom(x);
 
-    var yAxis = d3.axisLeft()
-        .scale(y);
+    var yAxis = d3.axisLeft(y);
 
     var svg = d3.select("body").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -71,11 +57,10 @@
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.csv("data/AAPL.csv", function(error, data) {
-        console.log(data);
-        var accessor = candlestick.accessor();
+    d3.csv("data/BABA.csv", function(error, data) {
+        var accessor = close.accessor();
 
-        data = data.map(function(d) {
+        data = data.slice(3, 365).map(function(d) {
             return {
                 date: parseDate(d.Date),
                 open: +d.Open,
@@ -85,20 +70,13 @@
                 volume: +d.Volume
             };
         }).sort(function(a, b) { return d3.ascending(accessor.d(a), accessor.d(b)); });
-console.log(data);
+
         svg.append("g")
-            .attr("class", "candlestick");
+            .attr("class", "close");
 
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")");
-
-        svg.append('text')
-            .attr('x',width/2)
-            .attr('y',100)
-            .text('CandleStick_AAPL')
-            .attr('class','.chart text')
-            .style('font-size','50');
 
         svg.append("g")
             .attr("class", "y axis")
@@ -109,17 +87,24 @@ console.log(data);
             .style("text-anchor", "end")
             .text("Price ($)");
 
+        svg.append('text')
+            .attr('x',width/2)
+            .attr('y',-20)
+            .text('CLoseLine_Alibaba')
+            .attr('class','.chart text')
+            .style('font-size','50');
+
         // Data to display initially
-        draw(data);
+        draw(data.slice(0, data.length-20));
         // Only want this button to be active if the data has loaded
-        d3.select("button").on("click", function() { draw(data.slice(0,200)); }).style("display", "inline");
+        d3.select("button").on("click", function() { draw(data); }).style("display", "inline");
     });
 
     function draw(data) {
-        x.domain(data.map(candlestick.accessor().d));
-        y.domain(techan.scale.plot.ohlc(data, candlestick.accessor()).domain());
+        x.domain(data.map(close.accessor().d));
+        y.domain(techan.scale.plot.ohlc(data, close.accessor()).domain());
 
-        svg.selectAll("g.candlestick").datum(data).call(candlestick);
+        svg.selectAll("g.close").datum(data).call(close);
         svg.selectAll("g.x.axis").call(xAxis);
         svg.selectAll("g.y.axis").call(yAxis);
     }

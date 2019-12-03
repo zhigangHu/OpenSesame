@@ -71,7 +71,7 @@
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.csv("data/AAPL.csv", function(error, data) {
+    d3.csv("data/GOOG.csv", function(error, data) {
         console.log(data);
         var accessor = candlestick.accessor();
 
@@ -96,7 +96,7 @@ console.log(data);
         svg.append('text')
             .attr('x',width/2)
             .attr('y',100)
-            .text('CandleStick_AAPL')
+            .text('CandleStick_Google')
             .attr('class','.chart text')
             .style('font-size','50');
 

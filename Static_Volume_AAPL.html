@@ -13,30 +13,24 @@
     button {
         position: absolute;
         right: 20px;
-        top: 440px;
+        top: 20px;
         display: none;
     }
 
-    path.candle {
-        stroke: #000000;
+    path.volume {
+        fill: #AAAAAA;
+        opacity: 0.5;
     }
 
-    path.candle.body {
-        stroke-width: 0;
-    }
-
-    path.candle.up {
+    path.volume.up {
         fill: #00AA00;
-        stroke: #00AA00;
     }
 
-    path.candle.down {
+    path.volume.down {
         fill: #FF0000;
-        stroke: #FF0000;
     }
 
 </style>
-<link rel="stylesheet" type="text/css" href="css/stock_style.css" />
 <body>
 <button>Update</button>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -44,7 +38,7 @@
 <script>
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width =1280-margin.left - margin.right
+        width = 1280 - margin.left - margin.right,
         height = 960 - margin.top - margin.bottom;
 
     var parseDate = d3.timeParse("%Y-%m-%d");
@@ -55,15 +49,15 @@
     var y = d3.scaleLinear()
         .range([height, 0]);
 
-    var candlestick = techan.plot.candlestick()
+    var volume = techan.plot.volume()
+        .accessor(techan.accessor.ohlc())   // For volume bar highlighting
         .xScale(x)
         .yScale(y);
 
-    var xAxis = d3.axisBottom()
-        .scale(x);
+    var xAxis = d3.axisBottom(x);
 
-    var yAxis = d3.axisLeft()
-        .scale(y);
+    var yAxis = d3.axisLeft(y)
+        .tickFormat(d3.format(",.3s"));
 
     var svg = d3.select("body").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -72,33 +66,27 @@
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     d3.csv("data/AAPL.csv", function(error, data) {
-        console.log(data);
-        var accessor = candlestick.accessor();
+        var accessor = volume.accessor();
 
-        data = data.map(function(d) {
+        data = data.slice(3, 200).map(function(d) {
+            // Open, high, low, close generally not required, is being used here to demonstrate colored volume
+            // bars
             return {
                 date: parseDate(d.Date),
+                volume: +d.Volume,
                 open: +d.Open,
                 high: +d.High,
                 low: +d.Low,
-                close: +d.Close,
-                volume: +d.Volume
+                close: +d.Close
             };
         }).sort(function(a, b) { return d3.ascending(accessor.d(a), accessor.d(b)); });
-console.log(data);
+
         svg.append("g")
-            .attr("class", "candlestick");
+            .attr("class", "volume");
 
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")");
-
-        svg.append('text')
-            .attr('x',width/2)
-            .attr('y',100)
-            .text('CandleStick_AAPL')
-            .attr('class','.chart text')
-            .style('font-size','50');
 
         svg.append("g")
             .attr("class", "y axis")
@@ -107,19 +95,25 @@ console.log(data);
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Price ($)");
+            .text("Volume");
 
+        svg.append('text')
+            .attr('x',width/2)
+            .attr('y',100)
+            .text('Volume_AAPL')
+            .attr('class','.chart text')
+            .style('font-size','50');
         // Data to display initially
-        draw(data);
+        draw(data.slice(0, data.length-20));
         // Only want this button to be active if the data has loaded
-        d3.select("button").on("click", function() { draw(data.slice(0,200)); }).style("display", "inline");
+        d3.select("button").on("click", function() { draw(data); }).style("display", "inline");
     });
 
     function draw(data) {
-        x.domain(data.map(candlestick.accessor().d));
-        y.domain(techan.scale.plot.ohlc(data, candlestick.accessor()).domain());
+        x.domain(data.map(volume.accessor().d));
+        y.domain(techan.scale.plot.volume(data, volume.accessor().v).domain());
 
-        svg.selectAll("g.candlestick").datum(data).call(candlestick);
+        svg.selectAll("g.volume").datum(data).call(volume);
         svg.selectAll("g.x.axis").call(xAxis);
         svg.selectAll("g.y.axis").call(yAxis);
     }
