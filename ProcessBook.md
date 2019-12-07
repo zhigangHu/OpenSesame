@@ -35,3 +35,9 @@ In the project,we used Python to scape the data from the the Yahoo Finance websi
 https://pandas-datareader.readthedocs.io/en/latest/
 The Jupyter Note file:
 https://github.com/zhigangHu/OpenSesame/blob/master/ScrapeData.ipynb
+
+# Questions:
+
+## Question 1: How to find effective method to discover the corelationship among the different companies.
+### In the stock market, there are many different companies in the market. Some of them have similar economic area. The investment should invest in the similar economic field companies to disperse the investment risky.
+At the original design, we try to use the scatter plot matrix to show the pair wise relationship between the company.
