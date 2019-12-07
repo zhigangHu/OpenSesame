@@ -76,4 +76,12 @@ https://zhiganghu.github.io/OpenSesame/Static_Indicator_ADX_AAPL.html
 
 ## Plot all the data into one chart
 ### Original Design
-![]()
+![](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_225925.jpg)
+### Plot all data with interative design
+https://zhiganghu.github.io/OpenSesame/Interactive_All_Plots_AAPL.html
+
+## Choosing the specific dataset with brush
+### Orignal Design
+![](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_225900.jpg)
+### Brushing the big data
+https://zhiganghu.github.io/OpenSesame/Interactive_Brush_AAPL.html
