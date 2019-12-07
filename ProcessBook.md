@@ -58,3 +58,4 @@ https://zhiganghu.github.io/OpenSesame/Static_Candle_AAPL.html
 
 ## The chart to show the trend of price
 ### Original Design
+![Original Close price trend chart](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230015.jpg)
