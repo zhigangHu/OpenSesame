@@ -42,3 +42,9 @@ https://github.com/zhigangHu/OpenSesame/blob/master/ScrapeData.ipynb
 ### In the stock market, there are many different companies in the market. Some of them have similar economic area. The investment should invest in the similar economic field companies to disperse the investment risky.
 At the original design, we try to use the scatter plot matrix to show the pair wise relationship between the company.
 ![Image text](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230154.jpg)
+### But in the practise, we found because the dataset is very huge, and the svg field is limited. So it is very difficult to show all the companies in just one scatter matrix chart, and it make the audience can not find the correlation effective.
+### So at last, we use the AP clustering method in the end design and visulization the result.
+
+## How to show the insight of data to the normal audience
+### In our project objective, we want to show the history data to the potential investor to let them know what is the good investment opportunity. But most of them cannot find the exact result just from some normal chart of stock. 
+### So we implement 3 kinds of the Indicator chart:Average Direction Index(ADX),Arron,ATR Trailing Stop. After tons of data processing, we visualize the result by 3 different kind of chart. From these chart, the investment can easily find out what is good investment opportunity and what is profit in the investment.
