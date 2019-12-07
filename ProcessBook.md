@@ -64,7 +64,7 @@ https://zhiganghu.github.io/OpenSesame/Static_CLoseLine_AAPL.html
 
 ## The chart to show the trading number of every trading date
 ### Original Design
-![Original Design of volume chart]()
+![Original Design of volume chart](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_225954.jpg)
 ### The Volume Chart
 https://zhiganghu.github.io/OpenSesame/Static_Volume_AAPL.html
 
