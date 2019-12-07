@@ -41,5 +41,4 @@ https://github.com/zhigangHu/OpenSesame/blob/master/ScrapeData.ipynb
 ## Question 1: How to find effective method to discover the corelationship among the different companies.
 ### In the stock market, there are many different companies in the market. Some of them have similar economic area. The investment should invest in the similar economic field companies to disperse the investment risky.
 At the original design, we try to use the scatter plot matrix to show the pair wise relationship between the company.
-![Image text]
-(https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230154.jpg)
+![Image text](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230154.jpg)
