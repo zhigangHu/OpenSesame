@@ -55,3 +55,6 @@ We used the AP(Affinity Propagation) cluster method to find out the invest portf
 ![Original Candle Stick](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230038.jpg)
 ### Candle Static Chart
 https://zhiganghu.github.io/OpenSesame/Static_Candle_AAPL.html
+
+## The chart to show the trend of price
+### Original Design
