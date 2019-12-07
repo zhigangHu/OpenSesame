@@ -45,6 +45,10 @@ At the original design, we try to use the scatter plot matrix to show the pair w
 ### But in the practise, we found because the dataset is very huge, and the svg field is limited. So it is very difficult to show all the companies in just one scatter matrix chart, and it make the audience can not find the correlation effective.
 ### So at last, we use the AP clustering method in the end design and visulization the result.
 
-## How to show the insight of data to the normal audience
+## Question2:How to show the insight of data to the normal audience
 ### In our project objective, we want to show the history data to the potential investor to let them know what is the good investment opportunity. But most of them cannot find the exact result just from some normal chart of stock. 
 ### So we implement 3 kinds of the Indicator chart:Average Direction Index(ADX),Arron,ATR Trailing Stop. After tons of data processing, we visualize the result by 3 different kind of chart. From these chart, the investment can easily find out what is good investment opportunity and what is profit in the investment.
+
+## Question3: How to show the huge data in one chart.
+### We scrapted the companies's stock market trade data from date '09/21/2015' to current time(more dataset more precision in the machine learning, this project is the step to predict the stock market). How to show all the data in the limited SVG field is a big problem we must handle with.
+### So we decide to use the D3 interactive function to let the user choose the data area they want to look inside by using d3.zoomin() and d3.xbrush() function. 
