@@ -16,12 +16,20 @@ https://visme.co/blog/business-intelligence-visualization/
 https://pdfs.semanticscholar.org/157a/1cb155ea34d33eacce0c870e8d6fd60a6c13.pdf
 
 # Questions: 
- In this project, we try to solve the following problems:
- 1.How to use clustering algrithm to find out the Investment Portfolio from a lot of stock data;
- 2.After choosing the specific investee, how to use different chart to show the insight of data;
- 3.For the dataset of stock market is very huge, how to design the interation method to let user to see the detail of dataset as they want;
- 4.How to make the complicated dataset of stock market be understood by the potential investors;
- 5.*(Depend the time)Can we give the advice of the future investment from the history data.(By different analyze method, Machine learning,time series analysis )
+ ## Question 1: How to find effective method to discover the corelationship among the different companies.
+ ### In the stock market, there are many different companies in the market. Some of them have similar economic area. The investment should invest in the similar economic field companies to disperse the investment risky.
+ At the original design, we try to use the scatter plot matrix to show the pair wise relationship between the company.
+ ![Image text](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230154.jpg)
+ ### But in the practise, we found because the dataset is very huge, and the svg field is limited. So it is very difficult to show all the companies in just one scatter matrix chart, and it make the audience can not find the correlation effective.
+ ### So at last, we use the AP clustering method in the end design and visulization the result.
+ 
+ ## Question2:How to show the insight of data to the normal audience
+ ### In our project objective, we want to show the history data to the potential investor to let them know what is the good investment opportunity. But most of them cannot find the exact result just from some normal chart of stock. 
+ ### So we implement 3 kinds of the Indicator chart:Average Direction Index(ADX),Arron,ATR Trailing Stop. After tons of data processing, we visualize the result by 3 different kind of chart. From these chart, the investment can easily find out what is good investment opportunity and what is profit in the investment.
+ 
+ ## Question3: How to show the huge data in one chart.
+ ### We scrapted the companies's stock market trade data from date '09/21/2015' to current time(more dataset more precision in the machine learning, this project is the step to predict the stock market). How to show all the data in the limited SVG field is a big problem we must handle with.
+ ### So we decide to use the D3 interactive function to let the user choose the data area they want to look inside by using d3.zoomin() and d3.xbrush() function. 
 
 # Data
 
@@ -36,19 +44,10 @@ https://pandas-datareader.readthedocs.io/en/latest/
 The Jupyter Note file:
 https://github.com/zhigangHu/OpenSesame/blob/master/ScrapeData.ipynb
 
-# Questions:
+# Exploratory Data Analysis
+### After scraping the dataset from Financial Yahoo website, we store the dataset into .csv data files.In each .csv file, there have 5 column: Date(trading date), Hign(The highest price in one trading date), Low(The lowest price in one trading date), Open(the stock price when market open), Close(the stock price when market close), Volume(the stock trading number in one trading date), Adj_Close(the close price after adjustment, most of them are same with Close, but sometime they are different.)
+## Dataset for clustering 
+We used the AP(Affinity Propagation) cluster method to find out the invest portfolio. But if we used all the column of dataset as clustering feature, it will take long time for computing, so we decided to just use 3 column of the dataset:Date, Open, Close for clustering. For have good clustering result, we scraped 56 different companies from the Financial Yahoo website.
 
-## Question 1: How to find effective method to discover the corelationship among the different companies.
-### In the stock market, there are many different companies in the market. Some of them have similar economic area. The investment should invest in the similar economic field companies to disperse the investment risky.
-At the original design, we try to use the scatter plot matrix to show the pair wise relationship between the company.
-![Image text](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230154.jpg)
-### But in the practise, we found because the dataset is very huge, and the svg field is limited. So it is very difficult to show all the companies in just one scatter matrix chart, and it make the audience can not find the correlation effective.
-### So at last, we use the AP clustering method in the end design and visulization the result.
-
-## Question2:How to show the insight of data to the normal audience
-### In our project objective, we want to show the history data to the potential investor to let them know what is the good investment opportunity. But most of them cannot find the exact result just from some normal chart of stock. 
-### So we implement 3 kinds of the Indicator chart:Average Direction Index(ADX),Arron,ATR Trailing Stop. After tons of data processing, we visualize the result by 3 different kind of chart. From these chart, the investment can easily find out what is good investment opportunity and what is profit in the investment.
-
-## Question3: How to show the huge data in one chart.
-### We scrapted the companies's stock market trade data from date '09/21/2015' to current time(more dataset more precision in the machine learning, this project is the step to predict the stock market). How to show all the data in the limited SVG field is a big problem we must handle with.
-### So we decide to use the D3 interactive function to let the user choose the data area they want to look inside by using d3.zoomin() and d3.xbrush() function. 
+# Design Evolution:
+## 
