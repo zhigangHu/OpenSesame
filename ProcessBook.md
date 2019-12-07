@@ -50,4 +50,5 @@ https://github.com/zhigangHu/OpenSesame/blob/master/ScrapeData.ipynb
 We used the AP(Affinity Propagation) cluster method to find out the invest portfolio. But if we used all the column of dataset as clustering feature, it will take long time for computing, so we decided to just use 3 column of the dataset:Date, Open, Close for clustering. For have good clustering result, we scraped 56 different companies from the Financial Yahoo website.
 
 # Design Evolution:
-## 
+## The chart to show the price in every trading date
+![Original Candle Stick](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230038.jpg)
