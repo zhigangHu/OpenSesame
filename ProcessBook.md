@@ -51,4 +51,7 @@ We used the AP(Affinity Propagation) cluster method to find out the invest portf
 
 # Design Evolution:
 ## The chart to show the price in every trading date
+### Original Design
 ![Original Candle Stick](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230038.jpg)
+### Candle Static Chart
+![Chart Stick Chart_AAPL](https://zhiganghu.github.io/OpenSesame/Static_Candle_AAPL.html)
