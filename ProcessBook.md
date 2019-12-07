@@ -59,3 +59,13 @@ https://zhiganghu.github.io/OpenSesame/Static_Candle_AAPL.html
 ## The chart to show the trend of price
 ### Original Design
 ![Original Close price trend chart](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_230015.jpg)
+### Close price trend chart
+https://zhiganghu.github.io/OpenSesame/Static_CLoseLine_AAPL.html
+
+## The chart to show the trading number of every trading date
+### Original Design
+![Original Design of volume chart]()
+### The Volume Chart
+https://zhiganghu.github.io/OpenSesame/Static_Volume_AAPL.html
+
+## The indicator to show the insight of the trading dataset
