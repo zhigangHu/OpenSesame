@@ -69,3 +69,11 @@ https://zhiganghu.github.io/OpenSesame/Static_CLoseLine_AAPL.html
 https://zhiganghu.github.io/OpenSesame/Static_Volume_AAPL.html
 
 ## The indicator to show the insight of the trading dataset
+### data processing
+![ADX data processing](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191207_160744.jpg)
+### Result visualization
+https://zhiganghu.github.io/OpenSesame/Static_Indicator_ADX_AAPL.html
+
+## Plot all the data into one chart
+### Original Design
+![]()
