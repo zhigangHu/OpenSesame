@@ -85,3 +85,22 @@ https://zhiganghu.github.io/OpenSesame/Interactive_All_Plots_AAPL.html
 ![](https://github.com/zhigangHu/OpenSesame/blob/master/OriginalDesign/IMG_20191111_225900.jpg)
 ### Brushing the big data
 https://zhiganghu.github.io/OpenSesame/Interactive_Brush_AAPL.html
+
+# Implementation
+### Since the code working of the project is very huge, I just show some of the important method or function used in my project. The detail of the implementation please take took in my Githup repository
+## The Python package for scraping dataset: Pandas-datareader
+https://pandas-datareader.readthedocs.io/en/latest/
+## Affinity Propogation Clustering(AP cluster)
+https://en.wikipedia.org/wiki/Affinity_propagation
+## D3.path
+### In the project, we used d3.path to draw the chart, like trend chart, candle stick chart, etc.
+https://observablehq.com/@d3/d3-path
+## D3.svg.rectangle
+### We used D3.svg.rectangle to implement the Volume chart
+https://www.dashingd3js.com/svg-basic-shapes-and-d3js
+## D3.zoom
+### In the interactive chart implementation, we used d3.zoom function
+https://www.d3-graph-gallery.com/graph/interactivity_zoom.html
+## D3.brush
+### We used d3.brush() function to select the specific dataset
+https://observablehq.com/@d3/brush-handles
